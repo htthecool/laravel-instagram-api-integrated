@@ -1,4 +1,4 @@
-# laravel-instagram-api-integrated
+# Laravel 5.7 with integrated Instagram api
 Fresh Laravel Installation with integrated Instagram Authentication
 
 The Socialite package doesn't support authentication via Instagram. This package https://packagist.org/packages/ramsey/laravel-oauth2-instagram provides instagram authentication and authorization out of box. I've implemented this package on a fresh Laravel 5.7 installation and added basic routes and views to enable you to check the flow. 
