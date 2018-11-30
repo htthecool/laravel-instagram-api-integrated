@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Instagram;
+use Session;
 
 class SocialAuthenticationController extends Controller
 {
     //
+	public function __construct()
+	{
+		$this->middleware('guest');
+	}
 
     public function instagram(Request $request)
     {
@@ -36,5 +41,13 @@ class SocialAuthenticationController extends Controller
 
 		$request->session()->put('instagramToken', $token);
 
+		return view('dashboard');
+    }
+
+    public function logout()
+    {
+    	Session::flush();
+
+    	return redirect('/');
     }
 }

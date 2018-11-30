@@ -11,12 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@home');
 
+Route::get('/dashboard', 'HomeController@dashboard');
+
+Route::get('/logout', 'SocialAuthenticationController@logout');
+
+/* Redirect user to Instagram for authorization */
 Route::get('/instagram','SocialAuthenticationController@instagram');
 
+/* Redirect URI that is passed to Instagram. Instagram will return the user to this route after authorization */
 Route::get('/login-instagram','SocialAuthenticationController@login_instagram');
 
-Route::get('/instagram_fetch-all','InstagramController@fetch_all');
+/* Fetching data of authorized user from Instagram using the api */
+Route::get('/instagram/fetch-all','InstagramController@fetch_all');

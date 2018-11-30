@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel with Integrated Instagram API</title>
+        <title>Dashboard - Laravel with Integrated Instagram API</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -65,25 +65,16 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Session::has('instagramToken'))
                 <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                        <a href="{{ url('/logout') }}">logout</a>
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                  <a href="{{ url('/instagram') }}">Login using instagram</a>
+                <div>
+                    {!! dd($instagramFeed) !!}
                 </div>
-
             </div>
         </div>
     </body>
